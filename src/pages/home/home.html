@@ -4,14 +4,17 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content class="" scroll="false">
+<a class="card item" style="height: 40%;background: seagreen;text-align: center; width: auto;">
+<h1 class="row row-center">JOBS</h1>
+<p class="row row-center">Tech vacancies in your pocket.</p> </a>
+<ion-scroll direction="y">
+<div class="card waves-effect waves-green waves-green" style="background:gray" ng-click="todayJobs();">
+<a class="item item-avatar waves-effect waves-block waves-dark in done item-text-wrap">
+<span class="avatar" style="background-image: url('../assets/img/4.jpg');"></span>
+<h2>Today Jobs</h2>
+<p>Discover all jobs in india.</p>
+</a>
+</div>
+</ion-scroll>
 </ion-content>
