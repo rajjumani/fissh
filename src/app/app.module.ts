@@ -5,13 +5,13 @@ import { ProfilePage } from '../pages/profile/profile';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
+import { NewsPage } from '../pages/news/news';
+import { BodPage } from '../pages/bod/bod';
+
 import { LoginPage } from '../pages/login/login';
 import { AuthService } from '../providers/auth-service';
 import { RegisterPage } from '../pages/register/register';
 
-
-import { NewsPage } from '../pages/news/news';
-import { BodPage } from '../pages/bod/bod';
 
 
 @NgModule({
@@ -27,6 +27,7 @@ import { BodPage } from '../pages/bod/bod';
     NewsPage,
     BodPage
 
+
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -39,10 +40,13 @@ import { BodPage } from '../pages/bod/bod';
     HomePage,
     TabsPage,
 
+
     LoginPage,
     RegisterPage,
 
     BodPage
+
+
 
 
   ],
