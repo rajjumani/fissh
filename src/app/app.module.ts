@@ -8,6 +8,14 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { NewsPage } from '../pages/news/news';
 import { BodPage } from '../pages/bod/bod';
 
+
+
+import { MembersPage } from '../pages/members/members';
+import { OfficebearersPage } from '../pages/officebearers/officebearers';
+import { AboutPage } from '../pages/about/about';
+import { EventPage } from '../pages/event/event';
+import { ContactPage } from '../pages/contact/contact';
+
 import { LoginPage } from '../pages/login/login';
 import { AuthService } from '../providers/auth-service';
 import { RegisterPage } from '../pages/register/register';
@@ -23,9 +31,13 @@ import { RegisterPage } from '../pages/register/register';
 
     LoginPage,
     RegisterPage,
-
     NewsPage,
-    BodPage
+    BodPage,
+    ContactPage,
+    MembersPage,
+    EventPage,
+    OfficebearersPage,
+    AboutPage
 
 
   ],
@@ -44,10 +56,14 @@ import { RegisterPage } from '../pages/register/register';
     LoginPage,
     RegisterPage,
 
-    BodPage
+    BodPage,
 
 
-
+    ContactPage,
+    MembersPage,
+    OfficebearersPage,
+    AboutPage,
+    EventPage
 
   ],
 
