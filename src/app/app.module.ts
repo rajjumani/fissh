@@ -6,6 +6,11 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { NewsPage } from '../pages/news/news';
 import { BodPage } from '../pages/bod/bod';
+import { LoginPage } from '../pages/login/login';
+import { AuthService } from '../providers/auth-service';
+import { RegisterPage } from '../pages/register/register';
+
+
 
 @NgModule({
   declarations: [
@@ -14,7 +19,9 @@ import { BodPage } from '../pages/bod/bod';
     HomePage,
     TabsPage,
     NewsPage,
-    BodPage
+    BodPage,
+    LoginPage,
+    RegisterPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -26,9 +33,13 @@ import { BodPage } from '../pages/bod/bod';
     ProfilePage,
     HomePage,
     TabsPage,
-    BodPage
-
+    BodPage,
+    LoginPage,
+    RegisterPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+
+ providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService]
+
+
 })
 export class AppModule {}
