@@ -5,39 +5,53 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>profile</ion-title>
+    <ion-title>Icon List</ion-title>
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content padding>
 
-  <ion-list>
+<ion-list no-border>
 
-    <ion-item>
-      <ion-label >Name</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
+  <ion-item>
+       <ion-icon name='planet' item-left></ion-icon>
+       Astronomy
+       <ion-note item-right>
+       To the moon
+       </ion-note>
+     </ion-item>
 
-    <ion-item>
-      <ion-label >Email</ion-label>
-      <ion-input type="email"></ion-input>
-    </ion-item>
+     <ion-item>
+       <ion-toggle checked="false"></ion-toggle>
+       <ion-label>
+         Muggle Studies
+       </ion-label>
+       <ion-icon name='body' item-left></ion-icon>
+     </ion-item>
 
-    <ion-item>
-      <ion-label >Phone</ion-label>
-      <ion-input type="number"></ion-input>
-    </ion-item>
+     <ion-item>
+       <ion-icon name='leaf' item-left></ion-icon>
+       Herbology
+       <ion-icon name='rose' item-right color="secondary"></ion-icon>
+     </ion-item>
 
-    <ion-item>
-      <ion-label >address</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
+     <ion-item>
+       <ion-icon name='flask' item-left></ion-icon>
+       Potions
+       <ion-note item-right>
+       Poisonous
+       </ion-note>
+     </ion-item>
 
 
-</ion-list>
+
+   </ion-list>
+
+
+
 
 </ion-content>
+
+
+<!-- After Login page Dynamically with UI -->
