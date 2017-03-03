@@ -39,17 +39,18 @@
 	  </ion-row>
 
 	  <ion-row   style="height: 50%; width: auto;">
+	    
+	    <ion-col width-33>
+	    	<button [navPush]="sponsorpage" ion-button color="secondary" clear full round icon-only large>
+		      <ion-icon name='md-contacts' is-active="false"></ion-icon>
+		    </button>
+		    Sponsors
+	    </ion-col>
 	    <ion-col width-33>
 	    	<button [navPush]="aboutpage" ion-button color="secondary" clear full round icon-only large>
 		      <ion-icon name='md-at' is-active="false"></ion-icon>
 		    </button>
 		    About Us
-	    </ion-col>
-	    <ion-col width-33>
-	    	<button [navPush]="eventpage" ion-button color="secondary" clear full round icon-only large>
-		      <ion-icon name='md-contacts' is-active="false"></ion-icon>
-		    </button>
-		    Events
 	    </ion-col>
 	    <ion-col width-33>
 	    	<button [navPush]="contactpage" ion-button color="secondary" clear full round icon-only large>

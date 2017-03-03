@@ -7,6 +7,7 @@ import {OfficebearersPage} from '../officebearers/officebearers';
 import {AboutPage} from '../about/about';
 import {EventPage} from '../event/event';
 import {ContactPage} from '../contact/contact';
+import {SponsorPage} from '../sponsor/sponsor';
 
 @Component({
   selector: 'page-home',
@@ -19,7 +20,7 @@ memberpage = MembersPage;
 contactpage = ContactPage;
 officebearerspage = OfficebearersPage;
 aboutpage = AboutPage;
-eventpage = EventPage;
+sponsorpage = SponsorPage;
 
   constructor(public navCtrl: NavController) {
 
