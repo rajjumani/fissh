@@ -9,12 +9,12 @@ import { BodPage } from '../pages/bod/bod';
 import { MembersPage } from '../pages/members/members';
 import { OfficebearersPage } from '../pages/officebearers/officebearers';
 import { AboutPage } from '../pages/about/about';
-import { ModalPage } from '../pages/bod/model-content';
-import { EventPage } from '../pages/event/event';
+import { SponsorPage } from '../pages/sponsor/sponsor';
 import { ContactPage } from '../pages/contact/contact';
 import { LoginPage } from '../pages/login/login';
 import { AuthService } from '../providers/auth-service';
 import { RegisterPage } from '../pages/register/register';
+
 
 
 
@@ -30,10 +30,9 @@ import { RegisterPage } from '../pages/register/register';
     RegisterPage,
     ContactPage,
     MembersPage,
-    EventPage,
+    SponsorPage,
     OfficebearersPage,
     AboutPage,
-    ModalPage
 
 
   ],
@@ -54,8 +53,8 @@ import { RegisterPage } from '../pages/register/register';
     MembersPage,
     OfficebearersPage,
     AboutPage,
-    EventPage,
-    ModalPage
+    SponsorPage,
+ 
   ],
 
  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService]

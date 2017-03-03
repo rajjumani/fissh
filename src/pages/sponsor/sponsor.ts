@@ -2,21 +2,21 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 /*
-  Generated class for the Event page.
+  Generated class for the Sponsor page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-event',
-  templateUrl: 'event.html'
+  selector: 'page-sponsor',
+  templateUrl: 'sponsor.html'
 })
-export class EventPage {
+export class SponsorPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EventPage');
+    console.log('ionViewDidLoad SponsorPage');
   }
 
 }
