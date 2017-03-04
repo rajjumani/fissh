@@ -24,6 +24,9 @@ export class User {
 @Injectable()
 export class AuthService {
   currentUser: User;
+  access : boolean;
+
+  constructor(private http: Http) { }
 
   public login(credentials) {
     if (credentials.email === null || credentials.password === null) {
@@ -31,15 +34,29 @@ export class AuthService {
     } else {
       return Observable.create(observer => {
         // At this point make a request to your backend to make a real check!
-        let access = (credentials.password === "pass" && credentials.email === "email");
-        this.currentUser = new User('dhruv', 'dhruv@gmail.com');
+        /*let url = 'http://fissh.website/api/user/login';
+
+        this.http.post(url,JSON.stringify(credentials))
+          .map(res => res.json())
+          .subscribe(data => {
+            console.log(data);
+          });
+        */
+        let access = (credentials.password === "admin1401" && credentials.email === "admin");
+        this.currentUser = new User('User', 'admin@gmail.com');
         observer.next(access);
         observer.complete();
       });
     }
   }
 
+  private handleSuccess(data, status, headers, config){
+      alert("Result: " + JSON.stringify(data)); 
+  }
 
+  private handleError(data, status, headers, config){
+     alert("Result: " + JSON.stringify(data)); 
+  }
   public register(credentials) {
      if (credentials.email === null || credentials.password === null) {
        return Observable.throw("Please insert credentials");

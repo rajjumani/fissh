@@ -22,7 +22,7 @@ export class LoginPage {
   constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {}
 
   public createAccount() {
-    this.nav.push(RegisterPage);
+    //this.nav.push(RegisterPage);
   }
 
 
@@ -41,8 +41,7 @@ export class LoginPage {
       } else {
         /*this.showError("Access Denied");*/
         setTimeout(() => {
-        this.loading.dismiss();
-        this.nav.setRoot(TabsPage)
+          this.showError("Invalid Credentials");
         });
       }
     },
