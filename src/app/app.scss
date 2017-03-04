@@ -17,6 +17,7 @@
 
 .card-background-page {
 
+background:url("../assets/img/background.jpg");
   ion-card {
     position: relative;
     text-align: center;
@@ -45,15 +46,8 @@
 
 }
 
-.card-news-page {
+.background-img {
 
-  ion-card {
-    position: relative;
-    text-align: center;
-    width: auto;
-    height: auto;
-    padding: 0px;
-    margin: 0px;
-  }
-
+background:url("../assets/img/background.jpg");
+  
 }

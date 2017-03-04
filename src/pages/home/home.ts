@@ -5,7 +5,6 @@ import {BodPage} from '../bod/bod';
 import {MembersPage} from '../members/members';
 import {OfficebearersPage} from '../officebearers/officebearers';
 import {AboutPage} from '../about/about';
-import {EventPage} from '../event/event';
 import {ContactPage} from '../contact/contact';
 import {SponsorPage} from '../sponsor/sponsor';
 
