@@ -36,7 +36,7 @@ export class LoginPage {
       if (allowed) {
         setTimeout(() => {
         this.loading.dismiss();
-        this.nav.setRoot(HomePage)
+        this.nav.setRoot(TabsPage)
         });
       } else {
         /*this.showError("Access Denied");*/
