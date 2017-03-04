@@ -9,12 +9,15 @@ import {EventPage} from '../event/event';
 import {ContactPage} from '../contact/contact';
 import {SponsorPage} from '../sponsor/sponsor';
 
+import { AuthService, User } from '../../providers/auth-service';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
 
+currentUser : any;
 bodpage = BodPage;
 memberpage = MembersPage;
 contactpage = ContactPage;
@@ -22,8 +25,9 @@ officebearerspage = OfficebearersPage;
 aboutpage = AboutPage;
 sponsorpage = SponsorPage;
 
-  constructor(public navCtrl: NavController) {
 
+  constructor(public navCtrl: NavController, private auth: AuthService) {
+  	this.currentUser = this.auth.getUserInfo();
   }
 
 }
