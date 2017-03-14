@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HTTP } from 'ionic-native';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
-
 
 
 export class User {
@@ -26,7 +25,9 @@ export class AuthService {
   currentUser: User;
   access : boolean;
 
-  constructor(private http: Http) { }
+  constructor() { 
+    
+  }
 
   public login(credentials) {
     if (credentials.email === null || credentials.password === null) {
@@ -34,29 +35,41 @@ export class AuthService {
     } else {
       return Observable.create(observer => {
         // At this point make a request to your backend to make a real check!
-        /*let url = 'http://fissh.website/api/user/login';
+        let url = 'http://fissh.website/api/user/login';
+       
+        HTTP.post(url, {
+                        "email" : credentials.email,
+                        "password" : credentials.password
+                      }, 
+                      {
+                        "Content-type" : "application/json",
+                        "accept" : "application/json"
+                      })
+            .then(data => {
 
-        this.http.post(url,JSON.stringify(credentials))
-          .map(res => res.json())
-          .subscribe(data => {
-            console.log(data);
-          });
-        */
-        let access = (credentials.password === "admin1401" && credentials.email === "admin");
+              console.log(data.status);
+              console.log(data.data); // data received by server
+              console.log(data.headers);
+
+            })
+            .catch(error => {
+
+              console.log(error.status);
+              console.log(error.error); // error message as string
+              console.log(error.headers);
+
+            });
+        
+        let access = true;//(credentials.password === "admin1401" && credentials.email === "admin");
         this.currentUser = new User('User', 'admin@gmail.com');
         observer.next(access);
         observer.complete();
       });
+
+
     }
   }
 
-  private handleSuccess(data, status, headers, config){
-      alert("Result: " + JSON.stringify(data)); 
-  }
-
-  private handleError(data, status, headers, config){
-     alert("Result: " + JSON.stringify(data)); 
-  }
   public register(credentials) {
      if (credentials.email === null || credentials.password === null) {
        return Observable.throw("Please insert credentials");
