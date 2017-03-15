@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, Loading } from 'ionic-angular';
-import { AuthService } from '../../providers/auth-service';
+import { AuthService, LoginError } from '../../providers/auth-service';
 import { HomePage } from '../home/home';
 import { TabsPage } from '../tabs/tabs';
 
@@ -39,10 +39,23 @@ export class LoginPage {
         this.nav.setRoot(TabsPage)
         });
       } else {
-        /*this.showError("Access Denied");*/
-        setTimeout(() => {
-          this.showError("Invalid Credentials");
-        });
+        let errorMsg = this.auth.getLoginError();
+        //console.log(errorMsg);
+        if(errorMsg.email != "" && errorMsg.email != null){
+          setTimeout(() => {
+            this.showError(errorMsg.email);
+          });  
+        }
+        else if(errorMsg.password != "" && errorMsg.password != null){
+          setTimeout(() => {
+            this.showError(errorMsg.password);
+          });  
+        }
+        else{
+          setTimeout(() => {
+            this.showError(errorMsg.msg);
+          });  
+        }
       }
     },
     error => {

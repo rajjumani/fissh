@@ -76,7 +76,8 @@
   <preference name="SplashScreen" value="screen"/>
   <preference name="SplashScreenDelay" value="3000"/>
   <preference name="ShowSplashScreenSpinner" value="false" />
-
+  <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    
   <feature name="StatusBar">
     <param name="ios-package" onload="true" value="CDVStatusBar"/>
   </feature>
@@ -86,5 +87,8 @@
   <plugin name="cordova-plugin-statusbar" spec="2.2.1"/>
   <plugin name="cordova-plugin-device" spec="1.1.4"/>
   <plugin name="cordova-plugin-splashscreen" spec="~4.0.1"/>
+  <plugin name="cordova-plugin-http" spec="1.2.0"/>
+  <plugin name="cordova-plugin-file" spec="4.3.2"/>
+  <plugin name="cordova-plugin-compat" spec="1.1.0"/>
   <icon src="resources\android\icon\drawable-xhdpi-icon.png"/>
 </widget>
