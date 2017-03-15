@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { AuthService, User } from '../../providers/auth-service';
+
 /*
   Generated class for the Profile page.
 
@@ -13,10 +15,14 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  currentUser : any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthService) {
+  	this.currentUser = this.auth.getUserInfo();
+  }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfilePage');
+//    console.log('ionViewDidLoad ProfilePage');
   }
 
 }

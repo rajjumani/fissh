@@ -17,26 +17,26 @@
   <ion-item>
        <ion-icon ios="ios-person" md="md-person" item-left></ion-icon>
 
-       <ion-input type="text" placeholder="Name"></ion-input>
+       <ion-input type="text" placeholder="Name" value={{currentUser.fullname}} disabled class="bold-input"></ion-input>
      </ion-item>
 
 
        <ion-item>
             <ion-icon ios="ios-mail" md="md-mail" item-left></ion-icon>
 
-            <ion-input type="text" placeholder="Email"></ion-input>
+            <ion-input type="text" placeholder="Email" value={{currentUser.email}} disabled class="bold-input"></ion-input>
           </ion-item>
 
             <ion-item>
                  <ion-icon ios="ios-call" md="md-call" item-left></ion-icon>
 
-                 <ion-input type="text" placeholder="Phone"></ion-input>
+                 <ion-input type="text" placeholder="Phone" value={{currentUser.mobile}} disabled class="bold-input"></ion-input>
                </ion-item>
 
 
        <ion-item>
           <ion-icon ios="ios-pin" md="md-pin" item-left></ion-icon>
-          <ion-input type="text" placeholder="Address"></ion-input>
+          <ion-input type="text" placeholder="Address" value={{currentUser.address}} disabled class="bold-input"></ion-input>
     </ion-item>
 </ion-list>
 
