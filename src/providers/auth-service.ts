@@ -136,10 +136,6 @@ export class AuthService {
     return this.currentUser;
   }
 
-  public setUserInfo(user : User) : any {
-    return this.currentUser = user;
-  }
-
   public getLoginError() : LoginError {
     return this.loginError;
   }

@@ -27,6 +27,7 @@ export class ProfilePage {
 
   ionViewDidLoad() {
 //    console.log('ionViewDidLoad ProfilePage');
+	this.currentUser = this.auth.getUserInfo();
   }
 
 
@@ -50,12 +51,33 @@ export class ProfilePage {
     alert.present(prompt);
   }
 
-  loadMeambers(){
+  showSuccess(text) {
+    setTimeout(() => {
+      this.loading.dismiss();
+    });
+
+    let alert = this.alertCtrl.create({
+      title: 'Success',
+      subTitle: text,
+      buttons: ['OK']
+    });
+    alert.present(prompt);
+  }
+
+  updateProfile(){
   	  	  this.showLoading();
-    let url = 'http://fissh.website/api/userprofile/?api_token=' + this.currentUser.api_token;
+    let url = 'http://fissh.website/api/userprofile/' + this.currentUser.profile_id + '?api_token=' + this.currentUser.api_token;
        
-    HTTP.get(url, { }, 
+    HTTP.post(url, 
+    				{
+    					"_method" : "PUT",
+    					"fullname" : this.currentUser.fullname,
+    					"address" : this.currentUser.address,
+    					"email" : this.currentUser.email,
+                        "mobile" : this.currentUser.mobile
+    				}, 
                       {
+                      	"Content-type" : "application/json",
                         "accept" : "application/json"
                       })
             .then(data => {
@@ -68,13 +90,27 @@ export class ProfilePage {
                 let datagot = JSON.parse(data.data);
                 if(datagot.error){
                   
-                  //console.log(datagot.msg);
-                  this.showError(datagot.msg);
+                  if(datagot.status_code == 401 || datagot.status_code == '401'){
+	              	this.showError("Member you want to update do not exist.");
+	              }
+	              else if(datagot.status_code == 404 || datagot.status_code == '404'){
+	              	this.showError("You are not autherized to update this data.");
+	              }
+	              else{
+	              	this.showError("Something Went Wrong,Try after sometime.");
+	              }
+                  
 
                   
                 }
                 else{
+                  //console.log(datagot.user.id);
+                  //console.log(datagot.userprofile.id);
                   
+                  setTimeout(() => {
+		            this.showSuccess("Data Updated Successfully,Please ReLogin for better experience.");
+		          });
+
                 }
               }
 
@@ -85,10 +121,30 @@ export class ProfilePage {
               //console.log(error.error); // error message as string
               //console.log(error.headers);
 
-              let datagot = JSON.parse(error.error);
+              let errorMsg = JSON.parse(error.error);
               if(error.status == 401){
               	this.showError("You are Not authorized,Try after ReLogin.");
               }
+                else if(errorMsg.fullname != "" && errorMsg.fullname != null){
+		          setTimeout(() => {
+		            this.showError(errorMsg.fullname);
+		          });  
+		        }
+		        else if(errorMsg.email != "" && errorMsg.email != null){
+		          setTimeout(() => {
+		            this.showError(errorMsg.email);
+		          });  
+		        }
+		        else if(errorMsg.mobile != "" && errorMsg.mobile != null){
+		          setTimeout(() => {
+		            this.showError(errorMsg.mobile);
+		          });  
+		        }
+		        else if(errorMsg.address != "" && errorMsg.address != null){
+		          setTimeout(() => {
+		            this.showError(errorMsg.address);
+		          });  
+		        }
               else{
               	this.showError("Server Side Error Occured.");	
               }

@@ -30,8 +30,8 @@ export class MembersPage {
   }
 
  ionViewDidLoad() {
-    console.log('ionViewDidLoad MembersPage');
-  
+    //console.log('ionViewDidLoad MembersPage');
+  	//this.currentUser = this.auth.getUserInfo();
   }
 
   showLoading() {

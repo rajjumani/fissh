@@ -29,4 +29,9 @@ sponsorpage = SponsorPage;
   	this.currentUser = this.auth.getUserInfo();
   }
 
+  ionViewDidLoad() {
+   //console.log('ionViewDidLoad HomePage');
+   //this.currentUser = this.auth.getUserInfo();
+  }
+
 }
