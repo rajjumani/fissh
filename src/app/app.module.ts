@@ -2,6 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { ProfilePage } from '../pages/profile/profile';
+import { AddprofilePage } from '../pages/addprofile/addprofile';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { NewsPage } from '../pages/news/news';
@@ -22,6 +23,7 @@ import { RegisterPage } from '../pages/register/register';
   declarations: [
     MyApp,
     ProfilePage,
+    AddprofilePage,
     HomePage,
     TabsPage,
     LoginPage,
@@ -44,6 +46,7 @@ import { RegisterPage } from '../pages/register/register';
     MyApp,
     NewsPage,
     ProfilePage,
+    AddprofilePage,
     HomePage,
     TabsPage,
     LoginPage,

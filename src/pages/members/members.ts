@@ -6,6 +6,8 @@ import 'rxjs/add/operator/map';
 
 import { AuthService, User } from '../../providers/auth-service';
 
+import {AddprofilePage} from '../addprofile/addprofile';
+
 /*
   Generated class for the Members page.
 
@@ -19,6 +21,8 @@ import { AuthService, User } from '../../providers/auth-service';
 export class MembersPage {
 
   currentUser : any;
+
+  addprofilePage = AddprofilePage;
 
   loading: Loading;
   members : Member[];
@@ -108,6 +112,17 @@ export class MembersPage {
       this.loading.dismiss();
     });
 
+  }
+
+  doRefresh(refresher) {
+    //console.log('Begin async operation', refresher);
+
+    this.loadMeambers();
+
+    setTimeout(() => {
+      //console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
   }
 }
 

@@ -14,6 +14,16 @@
 
 
 <ion-content class="background-img">
+  
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
   <ion-list>
 
     <ion-item *ngFor="let member of members" style="text-align: center;">
@@ -24,6 +34,12 @@
     </ion-item>
     
   </ion-list>
+
+  <ion-fab right bottom [hidden]="!currentUser.isAdmin">
+    <button ion-fab [navPush]="addprofilePage">
+      <ion-icon name="md-add"></ion-icon>
+    </button>
+  </ion-fab>
 
 </ion-content>
 
