@@ -1,0 +1,52 @@
+<!--
+  Generated template for the Addprofile page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>New Member</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="background-img">
+	<ion-list no-border>
+		<form (ngSubmit)="createProfile()" #profileForm="ngForm">
+		  <ion-item>
+		   <ion-icon ios="ios-person" md="md-person" item-left></ion-icon>
+
+		   <ion-input type="text" placeholder="Full Name" [(ngModel)]="newUser.fullname" class="bold-input" [ngModelOptions]="{standalone: true}" required></ion-input>
+		 </ion-item>
+
+
+		   <ion-item>
+		        <ion-icon ios="ios-mail" md="md-mail" item-left></ion-icon>
+
+		        <ion-input type="email" placeholder="Email Id" [(ngModel)]="newUser.email" class="bold-input" [ngModelOptions]="{standalone: true}" required></ion-input>
+		      </ion-item>
+
+		        <ion-item>
+		             <ion-icon ios="ios-call" md="md-call" item-left></ion-icon>
+
+		             <ion-input type="mobile" placeholder="Mobile No." [(ngModel)]="newUser.mobile" class="bold-input" [ngModelOptions]="{standalone: true}" required></ion-input>
+		           </ion-item>
+
+
+		     <ion-item>
+		        <ion-icon ios="ios-pin" md="md-pin" item-left></ion-icon>
+		        <ion-input type="text" placeholder="Address" [(ngModel)]="newUser.address" class="bold-input" [ngModelOptions]="{standalone: true}" required></ion-input>
+		    </ion-item>
+
+		    <ion-item>
+		      <button ion-button class="submit-btn" full type="submit" [disabled]="!profileForm.form.valid">Create Profile</button>
+		    </ion-item>
+
+		</form>
+	</ion-list>
+
+
+</ion-content>

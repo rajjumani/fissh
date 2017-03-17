@@ -14,226 +14,32 @@
 
 
 <ion-content class="background-img">
-<ion-list>
+  
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
 
-    <ion-item>
-      <ion-avatar item-left>
-        <img src="assets/img/member.png">
-      </ion-avatar>
-      <h2>Mr.Pukharaj Chopra</h2>
-      <p><ion-icon name="call"></ion-icon> +91 9414138776</p>
-    </ion-item>
+  <ion-list>
 
-    <ion-item>
-      <ion-avatar item-left>
-        <img src="assets/img/member.png">
-      </ion-avatar>
-      <h2>Mr.Yogesh Mehta</h2>
-      <p><ion-icon name="md-card"></ion-icon> SpicExim,Vashi,Navi Mumbai</p>
-      <p><ion-icon name="call"></ion-icon> +91 9821018983</p>
+    <ion-item *ngFor="let member of members" style="text-align: center;">
+      <h2 style="font-weight: bold;">{{member.fullname}}</h2>
+      <p><ion-icon name="md-call"></ion-icon> {{member.mobile}}</p>
+      <p><ion-icon name="md-mail"></ion-icon> {{member.email}}</p>
+      <p><ion-icon name="md-pin"></ion-icon> {{member.address}}</p>
     </ion-item>
-
-    <ion-item>
-      <ion-avatar item-left>
-      <img src="assets/img/member.png">
-      </ion-avatar>
-      <h2>Mr.Ramesh Nayak</h2>
-      <p><ion-icon name="md-card"></ion-icon> Kantilal pransukhram & Co.,Unjha</p>
-      <p><ion-icon name="call"></ion-icon> +91 9825097821</p>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-left>
-      <img src="assets/img/member.png">
-      </ion-avatar>
-      <h2>Mr.Ashwin Patel</h2>
-      <p><ion-icon name="md-card"></ion-icon> B.R.And Co.,Rajkot</p>
-      <p><ion-icon name="call"></ion-icon> +91 9824040881</p>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-left>
-      <img src="assets/img/member.png">
-      </ion-avatar>
-      <h2>Mr.Suresh Chandarana</h2>
-      <p><ion-icon name="md-card"></ion-icon> Dhaval Agri Exports,Rajkot</p>
-      <p><ion-icon name="call"></ion-icon> +91 9824066375</p>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-left>
-      <img src="assets/img/member.png">
-      </ion-avatar>
-      <h2>Mr.Mayur Mehta</h2>
-      <p><ion-icon name="call"></ion-icon> +91 9825012910</p>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-left>
-      <img src="assets/img/member.png">
-      </ion-avatar>
-      <h2>Mr.Ashvin Nayak</h2>
-      <p><ion-icon name="md-card"></ion-icon> Kanaiya Exports Pvt.Ltd.,Ahmedabad</p>
-      <p><ion-icon name="call"></ion-icon> +91 9824044621</p>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-left>
-      <img src="assets/img/member.png">
-      </ion-avatar>
-      <h2>Mr.Mitesh Patel</h2>
-      <p><ion-icon name="md-card"></ion-icon> M.R.Agro Industries,Unjha</p>
-      <p><ion-icon name="call"></ion-icon> +91 9825082144</p>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-left>
-      <img src="assets/img/member.png">
-      </ion-avatar>
-      <h2>Mr.Tejus Gandhi</h2>
-      <p><ion-icon name="md-card"></ion-icon> M/S Manilal Jamnadas,Unjha</p>
-      <p><ion-icon name="call"></ion-icon> +91 9825159818</p>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-left>
-      <img src="assets/img/member.png">
-      </ion-avatar>
-      <h2>Mr.U.Karthik</h2>
-      <p><ion-icon name="md-card"></ion-icon> Asian Spices,Unjha</p>
-      <p><ion-icon name="call"></ion-icon> +91 9426512034</p>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-left>
-      <img src="assets/img/member.png">
-      </ion-avatar>
-      <h2>Mr.Kishor Shah</h2>
-      <p><ion-icon name="md-card"></ion-icon> Meet Traders,Unjha</p>
-      <p><ion-icon name="call"></ion-icon> +91 9327512652</p>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-left>
-      <img src="assets/img/member.png">
-      </ion-avatar>
-      <h2>Mr.Subhendra Bafna</h2>
-      <p><ion-icon name="call"></ion-icon> +91 9929383333</p>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-left>
-      <img src="assets/img/member.png">
-      </ion-avatar>
-      <h2>Mr.Nilesh Ruparel</h2>
-      <p><ion-icon name="md-card"></ion-icon> Hindustan Global,Mumbai</p>
-      <p><ion-icon name="call"></ion-icon> +91 9821034246</p>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-left>
-      <img src="assets/img/member.png">
-      </ion-avatar>
-      <h2>Mr.Faisal Sorathia</h2>
-      <p><ion-icon name="md-card"></ion-icon> Ahmed Overseas,Junagadh</p>
-      <p><ion-icon name="call"></ion-icon> +91 9904765757</p>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-left>
-      <img src="assets/img/member.png">
-      </ion-avatar>
-      <h2>Mr.Hasmukh Patel</h2>
-      <p><ion-icon name="call"></ion-icon> +91 9825069720</p>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-left>
-      <img src="assets/img/member.png">
-      </ion-avatar>
-      <h2>Mr.Jitendra Jain</h2>
-      <p><ion-icon name="md-card"></ion-icon> Jitendra Trading Company,Mandsaur</p>
-      <p><ion-icon name="call"></ion-icon> +91 9425327515</p>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-left>
-      <img src="assets/img/member.png">
-      </ion-avatar>
-      <h2>Mr.Dinesh Bhattar</h2>
-      <p><ion-icon name="md-card"></ion-icon> Dinesh Trading Co.,Jodhpur</p>
-      <p><ion-icon name="call"></ion-icon> +91 9414121021</p>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-left>
-      <img src="assets/img/member.png">
-      </ion-avatar>
-      <h2>Mr.Sitaram Patel</h2>
-      <p><ion-icon name="call"></ion-icon> +91 9825069871</p>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-left>
-      <img src="assets/img/member.png">
-      </ion-avatar>
-      <h2>Mr.Rajni Popat</h2>
-      <p><ion-icon name="md-card"></ion-icon> Spices Brokers For Exporters,Mumbai</p>
-      <p><ion-icon name="call"></ion-icon> +91 9820056710</p>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-left>
-      <img src="assets/img/member.png">
-      </ion-avatar>
-      <h2>Mr.Hardik Patel</h2>
-      <p><ion-icon name="md-card"></ion-icon> F.H.Canvassing,Unjha</p>
-      <p><ion-icon name="call"></ion-icon> +91 9979868729</p>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-left>
-      <img src="assets/img/member.png">
-      </ion-avatar>
-      <h2>Mr.Chirag Adhiya</h2>
-      <p><ion-icon name="md-card"></ion-icon> DSN Agri Brokers,Rajkot</p>
-      <p><ion-icon name="call"></ion-icon> +91 9879121675</p>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-left>
-      <img src="assets/img/member.png">
-      </ion-avatar>
-      <h2>Mr.Bharat Dasani</h2>
-      <p><ion-icon name="md-card"></ion-icon> Krishna Canvassing,Rajkot</p>
-      <p><ion-icon name="call"></ion-icon> +91 9924400990</p>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-left>
-      <img src="assets/img/member.png">
-      </ion-avatar>
-      <h2>Mr.Indar.M. Jain</h2>
-      <p><ion-icon name="call"></ion-icon> +91 9827638390</p>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-left>
-      <img src="assets/img/member.png">
-      </ion-avatar>
-      <h2>Mr.Niraj Patel</h2>
-      <p><ion-icon name="md-card"></ion-icon> Bright Fame International,Unjha</p>
-      <p><ion-icon name="call"></ion-icon> +91 9998113500</p>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar item-left>
-      <img src="assets/img/member.png">
-      </ion-avatar>
-      <h2>Mr.Rakesh Jain</h2>
-      <p><ion-icon name="call"></ion-icon> +91 9829191000</p>
-    </ion-item>
+    
   </ion-list>
+
+  <ion-fab right bottom [hidden]="!currentUser.isAdmin">
+    <button ion-fab [navPush]="addprofilePage">
+      <ion-icon name="md-add"></ion-icon>
+    </button>
+  </ion-fab>
 
 </ion-content>
 

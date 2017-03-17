@@ -13,8 +13,9 @@ export class User {
  address : string;
  mobile : string;
  api_token : string;
+ isAdmin : boolean;
 
- constructor(user_id: number, profile_id: number, name : string, fullname: string, email: string, address : string, mobile: string, api_token: string) {
+ constructor(user_id: number, profile_id: number, name : string, fullname: string, email: string, address : string, mobile: string, api_token: string, isAdmin : boolean) {
    this.user_id = user_id;
    this.profile_id = profile_id;
    this.name = name;
@@ -23,6 +24,7 @@ export class User {
    this.address = address;
    this.mobile = mobile;
    this.api_token = api_token;
+   this.isAdmin = isAdmin;
  }
 }
 
@@ -91,7 +93,7 @@ export class AuthService {
                 }
                 else{
                   let access = true;
-                  this.currentUser = new User(datagot.user.id, datagot.user.userprofile.id, datagot.user.name, datagot.user.userprofile.fullname, datagot.user.email, datagot.user.userprofile.address, datagot.user.userprofile.mobile, datagot.api_token);
+                  this.currentUser = new User(datagot.user.id, datagot.user.userprofile.id, datagot.user.name, datagot.user.userprofile.fullname, datagot.user.email, datagot.user.userprofile.address, datagot.user.userprofile.mobile, datagot.api_token, datagot.isAdmin);
                   observer.next(access);
                   observer.complete();
                 }

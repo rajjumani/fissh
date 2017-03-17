@@ -7,29 +7,34 @@ import 'rxjs/add/operator/map';
 import { AuthService, User } from '../../providers/auth-service';
 
 /*
-  Generated class for the Profile page.
+  Generated class for the Addprofile page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-profile',
-  templateUrl: 'profile.html'
+  selector: 'page-addprofile',
+  templateUrl: 'addprofile.html'
 })
-export class ProfilePage {
+export class AddprofilePage {
 
   currentUser : any;
   loading: Loading;
+  newUser = {
+  	fullname : '',
+  	mobile : '',
+  	email : '',
+  	address : ''
+  };
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {
   	this.currentUser = this.auth.getUserInfo();
   }
 
   ionViewDidLoad() {
-//    console.log('ionViewDidLoad ProfilePage');
-	this.currentUser = this.auth.getUserInfo();
+    console.log('ionViewDidLoad AddprofilePage');
+    this.currentUser = this.auth.getUserInfo();
   }
-
 
   showLoading() {
     this.loading = this.loadingCtrl.create({
@@ -64,17 +69,16 @@ export class ProfilePage {
     alert.present(prompt);
   }
 
-  updateProfile(){
+  createProfile(){
   	  	  this.showLoading();
-    let url = 'http://fissh.website/api/userprofile/' + this.currentUser.profile_id + '?api_token=' + this.currentUser.api_token;
+    let url = 'http://fissh.website/api/userprofile?api_token=' + this.currentUser.api_token;
        
     HTTP.post(url, 
     				{
-    					"_method" : "PUT",
-    					"fullname" : this.currentUser.fullname,
-    					"address" : this.currentUser.address,
-    					"email" : this.currentUser.email,
-                        "mobile" : this.currentUser.mobile
+    					"fullname" : this.newUser.fullname,
+    					"address" : this.newUser.address,
+    					"email" : this.newUser.email,
+                        "mobile" : this.newUser.mobile
     				}, 
                       {
                       	"Content-type" : "application/json",
@@ -90,11 +94,11 @@ export class ProfilePage {
                 let datagot = JSON.parse(data.data);
                 if(datagot.error){
                   
-                  if(datagot.status_code == 404 || datagot.status_code == '404'){
-	              	this.showError("Member you want to update do not exist.");
+                  if(datagot.status_code == 401 || datagot.status_code == '401'){
+	              	this.showError("You are not allowed to add new members.");
 	              }
-	              else if(datagot.status_code == 401 || datagot.status_code == '401'){
-	              	this.showError("You are not autherized to update this data.");
+	              else if(datagot.status_code == 404 || datagot.status_code == '404'){
+	              	this.showError("Data could not reach to server,try again.");
 	              }
 	              else{
 	              	this.showError("Something Went Wrong,Try after sometime.");
@@ -108,9 +112,13 @@ export class ProfilePage {
                   //console.log(datagot.userprofile.id);
                   
                   setTimeout(() => {
-		            this.showSuccess("Data Updated Successfully,Please ReLogin for better experience.");
+		            this.showSuccess("Member Added Successfully,Check at Memberslist Page.");
 		          });
 
+                  this.newUser.fullname = '';
+                  this.newUser.address = '';
+                  this.newUser.email = '';
+                  this.newUser.mobile = '';
                 }
               }
 
@@ -157,6 +165,5 @@ export class ProfilePage {
     });
 
   }
-
 
 }

@@ -13,31 +13,37 @@
 
 
 <ion-list no-border>
-
+<form (ngSubmit)="updateProfile()" #profileForm="ngForm">
   <ion-item>
-       <ion-icon ios="ios-person" md="md-person" item-left></ion-icon>
+   <ion-icon ios="ios-person" md="md-person" item-left></ion-icon>
 
-       <ion-input type="text" placeholder="Name"></ion-input>
-     </ion-item>
-
-
-       <ion-item>
-            <ion-icon ios="ios-mail" md="md-mail" item-left></ion-icon>
-
-            <ion-input type="text" placeholder="Email"></ion-input>
-          </ion-item>
-
-            <ion-item>
-                 <ion-icon ios="ios-call" md="md-call" item-left></ion-icon>
-
-                 <ion-input type="text" placeholder="Phone"></ion-input>
-               </ion-item>
+   <ion-input type="text" placeholder="Name" [(ngModel)]="currentUser.fullname" class="bold-input" [ngModelOptions]="{standalone: true}" required></ion-input>
+ </ion-item>
 
 
-       <ion-item>
-          <ion-icon ios="ios-pin" md="md-pin" item-left></ion-icon>
-          <ion-input type="text" placeholder="Address"></ion-input>
+   <ion-item>
+        <ion-icon ios="ios-mail" md="md-mail" item-left></ion-icon>
+
+        <ion-input type="email" placeholder="Email" [(ngModel)]="currentUser.email" class="bold-input" [ngModelOptions]="{standalone: true}" required></ion-input>
+      </ion-item>
+
+        <ion-item>
+             <ion-icon ios="ios-call" md="md-call" item-left></ion-icon>
+
+             <ion-input type="mobile" placeholder="Phone" [(ngModel)]="currentUser.mobile" class="bold-input" [ngModelOptions]="{standalone: true}" required></ion-input>
+           </ion-item>
+
+
+     <ion-item>
+        <ion-icon ios="ios-pin" md="md-pin" item-left></ion-icon>
+        <ion-input type="text" placeholder="Address" [(ngModel)]="currentUser.address" class="bold-input" [ngModelOptions]="{standalone: true}" required></ion-input>
     </ion-item>
+
+    <ion-item>
+      <button ion-button class="submit-btn" full type="submit" [disabled]="!profileForm.form.valid">Update Profile</button>
+    </ion-item>
+
+</form>
 </ion-list>
 
 
