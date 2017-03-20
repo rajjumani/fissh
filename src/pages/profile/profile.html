@@ -46,7 +46,26 @@
 </form>
 </ion-list>
 
+<ion-list no-border>
+<form (ngSubmit)="changePassword()" #passwordForm="ngForm">
+  <ion-item>
+   <ion-icon ios="ios-person" md="md-lock" item-left></ion-icon>
 
+   <ion-input type="password" placeholder="New Password" [(ngModel)]="newpassword" class="bold-input" [ngModelOptions]="{standalone: true}" required></ion-input>
+ </ion-item>
+
+ <ion-item>
+   <ion-icon ios="ios-person" md="md-key" item-left></ion-icon>
+
+   <ion-input type="password" placeholder="Confirm Password" [(ngModel)]="confirmpassword" class="bold-input" [ngModelOptions]="{standalone: true}" required></ion-input>
+ </ion-item>
+
+    <ion-item>
+      <button ion-button class="submit-btn" full type="submit" [disabled]="!passwordForm.form.valid">Change Password</button>
+    </ion-item>
+
+</form>
+</ion-list>
 
 
 </ion-content>
