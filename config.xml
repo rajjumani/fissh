@@ -77,6 +77,17 @@
   <preference name="SplashScreenDelay" value="3000"/>
   <preference name="ShowSplashScreenSpinner" value="false" />
   <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+ 
+
+  <preference name="AutoHideSplashScreen" value="false"/> 
+  <feature name="SplashScreen">
+  <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen"/>
+  </feature>
+
+
+
+
+
     
   <feature name="StatusBar">
     <param name="ios-package" onload="true" value="CDVStatusBar"/>
