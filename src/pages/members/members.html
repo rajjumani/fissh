@@ -14,6 +14,10 @@
 
 
 <ion-content class="background-img">
+  <ion-searchbar
+    [(ngModel)]="searchInput"
+    (ionInput)="searchMembers($event)">
+  </ion-searchbar>
   
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content

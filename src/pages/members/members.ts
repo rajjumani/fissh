@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { NavController, NavParams, AlertController, LoadingController, Loading  } from 'ionic-angular';
 
 import { HTTP } from 'ionic-native';
@@ -14,23 +14,26 @@ import {AddprofilePage} from '../addprofile/addprofile';
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
+
 @Component({
   selector: 'page-members',
   templateUrl: 'members.html'
 })
-export class MembersPage {
+export class MembersPage{
 
   currentUser : any;
+  searchInput : string;
 
   addprofilePage = AddprofilePage;
 
   loading: Loading;
   members : Member[];
+  constMembers : Member[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {
   	this.currentUser = this.auth.getUserInfo();
-  	this.loadMeambers();
-
+  	this.searchInput = '';
+    this.loadMeambers();
   }
 
  ionViewDidLoad() {
@@ -83,6 +86,8 @@ export class MembersPage {
                 }
                 else{
                   this.members = datagot.userprofile;
+
+                  this.constMembers = this.members;
                   //for (let member of this.members) {
 				  //  console.log(member.fullname);
 				  //}
@@ -116,14 +121,38 @@ export class MembersPage {
 
   doRefresh(refresher) {
     //console.log('Begin async operation', refresher);
-
     this.loadMeambers();
 
     setTimeout(() => {
       //console.log('Async operation has ended');
       refresher.complete();
-    }, 2000);
+    }, 1500);
   }
+
+  searchMembers(searchbar) {
+    // set q to the value of the searchbar
+    this.members = this.constMembers;
+    var q = this.searchInput;
+
+
+    // if the value is an empty string don't filter the items
+    if (!q) {
+      return;
+    }
+
+    this.members = this.members.filter((v) => {
+      if(v.fullname && q) {
+        if (v.fullname.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+          return true;
+        }
+        return false;
+      }
+    });
+
+    //console.log(q, this.members.length);
+
+  }
+
 }
 
 export class Member{
