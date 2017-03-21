@@ -16,6 +16,8 @@ import { LoginPage } from '../pages/login/login';
 import { AuthService } from '../providers/auth-service';
 import { RegisterPage } from '../pages/register/register';
 
+import { Network } from '@ionic-native/network';
+
 
 
 
@@ -60,7 +62,7 @@ import { RegisterPage } from '../pages/register/register';
  
   ],
 
- providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService]
+ providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService, Network]
 
 
 })
