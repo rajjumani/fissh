@@ -14,7 +14,7 @@ import { SponsorPage } from '../pages/sponsor/sponsor';
 import { ContactPage } from '../pages/contact/contact';
 import { LoginPage } from '../pages/login/login';
 import { AuthService } from '../providers/auth-service';
-import { RegisterPage } from '../pages/register/register';
+import { RegisterPagePage } from '../pages/register-page/register-page';
 
 import { Network } from '@ionic-native/network';
 
@@ -29,7 +29,7 @@ import { Network } from '@ionic-native/network';
     HomePage,
     TabsPage,
     LoginPage,
-    RegisterPage,
+    RegisterPagePage,
     NewsPage,
     BodPage,
     ContactPage,
@@ -52,7 +52,7 @@ import { Network } from '@ionic-native/network';
     HomePage,
     TabsPage,
     LoginPage,
-    RegisterPage,
+    RegisterPagePage,
     BodPage,
     ContactPage,
     MembersPage,

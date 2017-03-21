@@ -3,7 +3,7 @@ import { NavController, AlertController, LoadingController, Loading } from 'ioni
 import { AuthService, LoginError } from '../../providers/auth-service';
 import { HomePage } from '../home/home';
 import { TabsPage } from '../tabs/tabs';
-
+import { RegisterPagePage } from '../register-page/register-page';
 import { Network } from '@ionic-native/network';
 
 import { RegisterPage } from '../register/register';
@@ -28,6 +28,9 @@ export class LoginPage {
   }
 
 
+public registerPage() {
+    this.nav.push(RegisterPagePage);
+  }
 
 
 
