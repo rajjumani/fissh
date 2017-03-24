@@ -6,6 +6,7 @@ import { AddprofilePage } from '../pages/addprofile/addprofile';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { NewsPage } from '../pages/news/news';
+import { AddnewsPage } from '../pages/addnews/addnews';
 import { BodPage } from '../pages/bod/bod';
 import { MembersPage } from '../pages/members/members';
 import { OfficebearersPage } from '../pages/officebearers/officebearers';
@@ -37,6 +38,7 @@ import { Network } from '@ionic-native/network';
     SponsorPage,
     OfficebearersPage,
     AboutPage,
+    AddnewsPage
 
 
   ],
@@ -59,6 +61,7 @@ import { Network } from '@ionic-native/network';
     OfficebearersPage,
     AboutPage,
     SponsorPage,
+    AddnewsPage
  
   ],
 

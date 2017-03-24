@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController, LoadingController, Loading } from 'ionic-angular';
 import {ContactPage} from '../contact/contact';
-
+import {AddnewsPage} from '../addnews/addnews';
 import { HTTP } from 'ionic-native';
 import 'rxjs/add/operator/map';
 
@@ -25,7 +25,7 @@ export class NewsPage {
 
 currentUser : any;
 
-addprofilePage = AddprofilePage;
+addnewsPage = AddnewsPage;
 
 loading: Loading;
   news_array : News[];
