@@ -7,9 +7,47 @@
 <ion-content class="background-img">
   
 
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
   <ion-list>
 
-    <ion-item>
+  <ion-card *ngFor="let n of news_array">
+  <img src="{{n.imagepath}}"/>
+  <ion-card-content>
+    <ion-card-title>
+      {{n.title}}
+      </ion-card-title>
+    <p>
+    {{n.description}}
+    </p>
+</ion-card-content>
+</ion-card>
+
+
+
+<!-- 
+  <ion-item *ngFor="let n of news_array" style="text-align: center;">
+      <h2 style="font-weight: bold;">{{n.title}}</h2>
+       <p><ion-icon name="md-call"></ion-icon> {{n.discription}}</p>
+      <p><ion-icon name="md-pin"></ion-icon> <img src="{{n.imagepath}}"/></p> 
+    </ion-item>
+ -->
+</ion-list>
+
+    <ion-fab right bottom [hidden]="!currentUser.isAdmin">
+    <button ion-fab [navPush]="addprofilePage">
+      <ion-icon name="md-add"></ion-icon>
+    </button>
+  </ion-fab>
+
+   <!--  <ion-item>
       <ion-thumbnail item-left>
         <img src="assets/img/news/news1.jpeg">
       </ion-thumbnail>
@@ -49,7 +87,7 @@
       <h2 style="overflow: initial; white-space: initial;  font-size:0.9em;">Letter from Shri Arjun Meghwal</h2>
       <p style="overflow: initial; white-space: initial;"></p>
     </ion-item>
-
-  </ion-list>
+ -->
+  
 </ion-content>
 
