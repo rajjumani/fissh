@@ -24,16 +24,17 @@ import {AddprofilePage} from '../addprofile/addprofile';
 export class NewsPage {
 
 currentUser : any;
-
+searchInput : string;
 addnewsPage = AddnewsPage;
 
 loading: Loading;
   news_array : News[];
-  
+const_news_array : News[];  
 
 aboutPage = ContactPage;
   constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController, private network: Network) {
   	this.currentUser = this.auth.getUserInfo();
+  	this.searchInput = '';
   	this.loadNews();
   }
 
@@ -74,9 +75,9 @@ ionViewDidLoad() {
                         })
               .then(data => {
 
-                console.log(data.status);
-                console.log(data.data); // data received by server
-                console.log(data.headers);
+                // console.log(data.status);
+                // console.log(data.data); // data received by server
+                // console.log(data.headers);
 
                 if(data.status == 200){
                   let datagot = JSON.parse(data.data);
@@ -90,10 +91,10 @@ ionViewDidLoad() {
                   else{
                     this.news_array = datagot.news;
 
-                   // this.constMembers = this.members;
-                    for (let n of this.news_array) {
-  				    console.log(n.title);
-  				  }
+                   this.const_news_array = this.news_array;
+        //             for (let n of this.news_array) {
+  				  //   console.log(n.title);
+  				  // }
                     
                   }
                 }
@@ -132,6 +133,34 @@ ionViewDidLoad() {
       refresher.complete();
     }, 1500);
   }
+
+searchNews(searchbar) {
+    // set q to the value of the searchbar
+    this.news_array = this.const_news_array;
+    var q = this.searchInput;
+
+
+    // if the value is an empty string don't filter the items
+    if (!q) {
+      return;
+    }
+
+    this.news_array = this.news_array.filter((v) => {
+      if(( v.title && q ) || ( v.description && q ) ) {
+        if (v.title.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+          return true;
+        }
+        else if (v.description.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+          return true;
+        }
+		  return false;
+      }
+    });
+
+    //console.log(q, this.members.length);
+
+  }
+
 
    isOnline(){
     if(this.network.type == 'none' ) {
