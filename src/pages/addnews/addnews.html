@@ -13,6 +13,36 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="background-img">
+	<ion-list no-border>
+		<form (ngSubmit)="createNews()" #newsForm="ngForm">
+		  <ion-item>
+		   <ion-icon ios="ios-person" md="md-create" item-left></ion-icon>
+
+		   <ion-input type="text" placeholder="Tittle" [(ngModel)]="newNews.title" class="bold-input" [ngModelOptions]="{standalone: true}" required></ion-input>
+		 </ion-item>
+
+
+		   <ion-item>
+		        <ion-icon ios="ios-mail" md="md-information-circle" item-left></ion-icon>
+
+		        <ion-input type="text" placeholder="Dscription" [(ngModel)]="newNews.description" class="bold-input" [ngModelOptions]="{standalone: true}" required></ion-input>
+		      </ion-item>
+
+		        <ion-item>
+		             <ion-icon ios="ios-call" md="md-link" item-left></ion-icon>
+
+		             <ion-input type="text" placeholder="ImagePath" [(ngModel)]="newNews.imagepath" class="bold-input" [ngModelOptions]="{standalone: true}" ></ion-input>
+		           </ion-item>
+
+
+		    
+		    <ion-item>
+		      <button ion-button class="submit-btn" full type="submit" [disabled]="!newsForm.form.valid">Add News</button>
+		    </ion-item>
+
+		</form>
+	</ion-list>
+
 
 </ion-content>
