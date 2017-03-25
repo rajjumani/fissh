@@ -34,7 +34,7 @@ export class AddprofilePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddprofilePage');
+  //  console.log('ionViewDidLoad AddprofilePage');
     this.currentUser = this.auth.getUserInfo();
   }
 
