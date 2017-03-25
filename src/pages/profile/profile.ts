@@ -4,11 +4,11 @@ import { NavController, NavParams, AlertController, LoadingController, Loading }
 import { HTTP } from 'ionic-native';
 import 'rxjs/add/operator/map';
 
-import { LoginPage } from '../login/login';
+// import { LoginPage } from '../login/login';
 
 import { Network } from '@ionic-native/network';
 
-import { AuthService, User } from '../../providers/auth-service';
+import { AuthService } from '../../providers/auth-service';
 
 /*
   Generated class for the Profile page.

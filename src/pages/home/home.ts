@@ -8,7 +8,7 @@ import {AboutPage} from '../about/about';
 import {ContactPage} from '../contact/contact';
 import {SponsorPage} from '../sponsor/sponsor';
 
-import { AuthService, User } from '../../providers/auth-service';
+import { AuthService} from '../../providers/auth-service';
 
 @Component({
   selector: 'page-home',

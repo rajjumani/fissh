@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 
 import { Network } from '@ionic-native/network';
 
-import { AuthService, User } from '../../providers/auth-service';
+import { AuthService } from '../../providers/auth-service';
 
 /*
   Generated class for the Addprofile page.

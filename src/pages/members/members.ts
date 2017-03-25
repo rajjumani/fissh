@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 
 import { Network } from '@ionic-native/network';
 
-import { AuthService, User } from '../../providers/auth-service';
+import { AuthService} from '../../providers/auth-service';
 
 import {AddprofilePage} from '../addprofile/addprofile';
 
@@ -106,7 +106,7 @@ export class MembersPage{
                 //console.log(error.error); // error message as string
                 //console.log(error.headers);
 
-                let datagot = JSON.parse(error.error);
+             //   let datagot = JSON.parse(error.error);
                 if(error.status == 401){
                 	this.showError("You are Not authorized,Try after ReLogin.");
                 }

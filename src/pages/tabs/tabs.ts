@@ -5,7 +5,7 @@ import { NewsPage } from '../news/news';
 import { ProfilePage } from '../profile/profile';
 import { LoginPage } from '../login/login';
 
-import { AuthService, User } from '../../providers/auth-service';
+import { AuthService } from '../../providers/auth-service';
 import { NavController } from 'ionic-angular';
 
 @Component({

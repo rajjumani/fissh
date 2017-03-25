@@ -1,12 +1,12 @@
-import { NgModule, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, Loading } from 'ionic-angular';
-import { AuthService, LoginError } from '../../providers/auth-service';
-import { HomePage } from '../home/home';
+import { AuthService } from '../../providers/auth-service';
+// import { HomePage } from '../home/home';
 import { TabsPage } from '../tabs/tabs';
 import { RegisterPagePage } from '../register-page/register-page';
 import { Network } from '@ionic-native/network';
 
-import { RegisterPage } from '../register/register';
+// import { RegisterPage } from '../register/register';
 /*
   Generated class for the Login page.
 
@@ -19,9 +19,13 @@ import { RegisterPage } from '../register/register';
 })
 export class LoginPage {
   loading: Loading;
+  
   registerCredentials = {email: '', password: ''};
 
-  constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController, private network: Network) {}
+  constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController, private network: Network) {
+    
+    
+  }
 
   public createAccount() {
     //this.nav.push(RegisterPage);
@@ -41,6 +45,7 @@ public registerPage() {
       this.auth.login(this.registerCredentials).subscribe(allowed => {
         if (allowed) {
           setTimeout(() => {
+           
           this.loading.dismiss();
           this.nav.setRoot(TabsPage)
           });
@@ -78,7 +83,8 @@ public registerPage() {
     this.loading.present();
   }
 
-  showError(text) {
+  
+showError(text) {
     setTimeout(() => {
       this.loading.dismiss();
     });
