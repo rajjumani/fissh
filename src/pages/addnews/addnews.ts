@@ -35,7 +35,7 @@ export class AddnewsPage {
   }
 
   ionViewDidLoad() {
-   console.log('ionViewDidLoad AddnewsPage');
+  // console.log('ionViewDidLoad AddnewsPage');
    this.currentUser = this.auth.getUserInfo();
   }
 
@@ -79,9 +79,9 @@ export class AddnewsPage {
          
       HTTP.post(url, 
               {
-                "fullname" : this.newNews.title,
-                "address" : this.newNews.description,
-                "email" : this.newNews.imagepath
+                "title" : this.newNews.title,
+                "description" : this.newNews.description,
+                "imagepath" : this.newNews.imagepath
               }, 
                         {
                           "Content-type" : "application/json",
